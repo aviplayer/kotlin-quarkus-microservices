@@ -1,0 +1,10 @@
+quarkus:
+  datasource:
+    db-kind: postgresql
+    username: local
+    password: local
+    jdbc:
+      url: jdbc:postgresql://localhost:11001/user_db
+flyway:
+  migrate-at-start:
+    true

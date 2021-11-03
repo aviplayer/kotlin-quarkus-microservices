@@ -1,0 +1,26 @@
+quarkus:
+  http:
+    port: 8085
+  datasource:
+    db-kind: postgresql
+    username: local
+    password: local
+    jdbc: false
+    reactive:
+      url: postgresql://localhost:11001/user_db
+      max-size: 8
+  hibernate-orm:
+    log:
+      sql: true
+    dialect: org.hibernate.dialect.PostgreSQL10Dialect
+kafka:
+  bootstrap:
+    servers: localhost:11002
+mp:
+  messaging:
+    incoming:
+      users:
+        topic: users
+        value:
+          deserializer: " org.microservices.web.utils.UserDeserializer"
+        connector: smallrye-kafka
